@@ -1,1 +1,64 @@
-<div class="container"></div>
+<div class="grid-container">
+  <div
+    id="z1"
+    (drop)="drop($event, 'z1')"
+    (dragover)="allowDrop($event)"
+    class="z1 {{ dragged ? 'placholder' : '' }}"
+  >
+    <div id="drag1" draggable="true" (dragstart)="drag($event)" class="box">
+      drag me
+    </div>
+  </div>
+  <div
+    id="z2"
+    (drop)="drop($event, 'z2')"
+    (dragover)="allowDrop($event)"
+    class="z2 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+  <div
+    id="z3"
+    (drop)="drop($event, 'z3')"
+    (dragover)="allowDrop($event)"
+    class="z3 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+  <div
+    id="z4"
+    (drop)="drop($event, 'z4')"
+    (dragover)="allowDrop($event)"
+    class="z4 {{ dragged ? 'placholder' : '' }}"
+  >
+    <div id="drag" draggable="true" (dragstart)="drag($event)" class="box">
+      drag you
+    </div>
+  </div>
+  <div
+    id="z5"
+    (drop)="drop($event, 'z5')"
+    (dragover)="allowDrop($event)"
+    class="z5 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+  <div
+    id="z6"
+    (drop)="drop($event, 'z6')"
+    (dragover)="allowDrop($event)"
+    class="z6 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+  <div
+    id="z7"
+    (drop)="drop($event, 'z6')"
+    (dragover)="allowDrop($event)"
+    class="z7 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+  <div
+    id="z8"
+    (drop)="drop($event, 'z8')"
+    (dragover)="allowDrop($event)"
+    class="z8 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+  <div
+    id="z9"
+    (drop)="drop($event, 'z8')"
+    (dragover)="allowDrop($event)"
+    class="z9 {{ dragged ? 'placholder' : '' }}"
+  ></div>
+</div>
