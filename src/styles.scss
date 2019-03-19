@@ -2,7 +2,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html,
 body {
-  background-color: #000; 
+  background-color: #000;
+  // background-image: url("./assets/bk-ground23.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   min-height: 100%;
   color: #fff;

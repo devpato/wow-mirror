@@ -1,11 +1,11 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: "z1 z2 z3" "z4 z5 z6" "z7 z8 z9";
   grid-gap: 10px;
   height: 100%;
-  margin: 42px;
+  margin: 4px;
 }
 
 .z1,
@@ -19,8 +19,8 @@
 .z9 {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
 }
 
 .z1 {
@@ -33,6 +33,7 @@
 
 .z3 {
   grid-area: z3;
+  text-align: right;
 }
 
 .z4 {
@@ -45,22 +46,27 @@
 
 .z6 {
   grid-area: z6;
+  text-align: right;
 }
 
 .z7 {
   grid-area: z7;
+  padding-bottom: 24px;
 }
 
 .z8 {
   grid-area: z8;
+  padding-bottom: 24px;
 }
 
 .z9 {
   grid-area: z9;
+  padding-bottom: 24px;
+  text-align: right;
 }
 
 #drag,
-#drag1, #drag2 {
+#drag1 {
   height: 200px;
   cursor: move;
   width: 100%;
@@ -75,7 +81,6 @@
 // }
 
 #drag2 {
-  
 }
 
 .placholder {
