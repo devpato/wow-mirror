@@ -1,10 +1,11 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px 200px;
   grid-template-areas: "z1 z2 z3" "z4 z5 z6" "z7 z8 z9";
   grid-gap: 10px;
   height: 100%;
+  margin: 42px;
 }
 
 .z1,
@@ -59,18 +60,22 @@
 }
 
 #drag,
-#drag1 {
+#drag1, #drag2 {
   height: 200px;
   cursor: move;
   width: 100%;
 }
 
-#drag {
-  background-color: green;
-}
+// #drag {
+//   background-color: green;
+// }
 
-#drag1 {
-  background-color: purple;
+// #drag1 {
+//   background-color: purple;
+// }
+
+#drag2 {
+  
 }
 
 .placholder {

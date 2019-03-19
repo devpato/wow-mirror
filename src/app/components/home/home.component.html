@@ -14,7 +14,10 @@
     (drop)="drop($event, 'z2')"
     (dragover)="allowDrop($event)"
     class="z2 {{ dragged ? 'placholder' : '' }}"
-  ></div>
+  ><div id="drag2" draggable="true" (dragstart)="drag($event)" class="box">
+    <app-clock></app-clock>
+  </div>
+</div>
   <div
     id="z3"
     (drop)="drop($event, 'z3')"
