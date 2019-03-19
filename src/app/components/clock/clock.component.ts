@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-clock',
-  templateUrl: './clock.component.html',
-  styleUrls: ['./clock.component.scss']
+  selector: "app-clock",
+  templateUrl: "./clock.component.html",
+  styleUrls: ["./clock.component.scss"]
 })
 export class ClockComponent implements OnInit {
   time: string;
   date: Date;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.buildDate();
+    this.startClock();
   }
 
-  buildDate() {
+  startClock() {
     setInterval(() => {
       this.date = new Date();
     }, 1000);
