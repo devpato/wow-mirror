@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
   grid-template-areas: "z1 z2 z3" "z4 z5 z6" "z7 z8 z9";
   grid-gap: 10px;
   height: 100%;
@@ -19,10 +19,9 @@
 .z9 {
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
 }
 
+//Top row
 .z1 {
   grid-area: z1;
 }
@@ -36,6 +35,7 @@
   text-align: right;
 }
 
+//Middle row
 .z4 {
   grid-area: z4;
 }
@@ -49,38 +49,30 @@
   text-align: right;
 }
 
+//Bottom Row
 .z7 {
   grid-area: z7;
   padding-bottom: 24px;
+  justify-content: flex-end;
 }
 
 .z8 {
   grid-area: z8;
   padding-bottom: 24px;
+  justify-content: flex-end;
 }
 
 .z9 {
   grid-area: z9;
   padding-bottom: 24px;
+  justify-content: flex-end;
   text-align: right;
 }
 
 #drag,
 #drag1 {
-  height: 200px;
   cursor: move;
   width: 100%;
-}
-
-// #drag {
-//   background-color: green;
-// }
-
-// #drag1 {
-//   background-color: purple;
-// }
-
-#drag2 {
 }
 
 .placholder {
