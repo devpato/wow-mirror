@@ -1,0 +1,13 @@
+.current-weather {
+    .weather-info {
+        display: flex;
+        font-size: 48px;
+        .sunrise, .sunset {
+            margin-left: 16px;
+        }
+    }
+}
+
+.weather-wrapper {
+    font-size: 100px;
+}

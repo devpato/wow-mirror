@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 import { pipe } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import * as iconTable from '../../shared/const/icons';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -11,7 +12,12 @@ export class WeatherComponent implements OnInit {
   currentTime: number;
   forecast = [];
   currentWeather: any;
-  constructor(private _weatherService: WeatherService) { }
+  wind: number;
+  sunset: Date;
+  sunrise: Date;
+  icons = iconTable;
+  constructor(private _weatherService: WeatherService) {}
+
 
   ngOnInit() {
     this.getCurrentWeatherInfo();
@@ -28,6 +34,10 @@ export class WeatherComponent implements OnInit {
        })).subscribe(cw => {
          this.currentTime = new Date(cw['dt'] * 1000).getHours();
          this.currentWeather = cw;
+         this.wind = Math.round(this.currentWeather.wind.speed);
+         this.sunrise = new Date(this.currentWeather.sys.sunrise * 1000);
+         this.sunset = new Date(this.currentWeather.sys.sunset * 1000);
+         console.log(cw);
        });
   }
 

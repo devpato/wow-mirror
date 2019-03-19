@@ -1,3 +1,18 @@
-<p>
-  {{forecast | json}}
-</p>
+
+<ng-container *ngIf="currentWeather">
+    <div class="weather">
+        <div class="current-weather">
+          <div class="weather-info">
+              <div class="wind"><i class="wi wi-wind-beaufort-{{wind}}"></i></div>
+              <div class="sunrise" *ngIf="!currentTime >= 12; else sunsets"><i class="wi wi-sunrise"></i> {{sunrise | date: 'hh:mm a'}}</div>
+              <ng-template #sunsets>
+                  <div class="sunset"><i class="wi wi-sunset"></i> {{sunset |  date: 'hh:mm a'}}</div>
+              </ng-template>
+          </div>
+          <div class="weather-wrapper">
+              <i class="wi {{icons.iconTable[currentWeather.weather[0].icon]}}"></i>{{currentWeather.main.temp | number:'1.0-0'}}<i class="wi wi-celsius"></i>
+          </div>
+        </div>
+      </div>
+</ng-container>
+
