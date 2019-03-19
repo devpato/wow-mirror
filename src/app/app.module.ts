@@ -11,6 +11,7 @@ import { NewsComponent } from './components/news/news.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ForecastComponent } from './components/forecast/forecast.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ComplimentsComponent,
     NewsComponent,
     TodoListComponent,
-    WeatherComponent
+    WeatherComponent,
+    ForecastComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, MaterialModule, HttpClientModule],
   providers: [],
