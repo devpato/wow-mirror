@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import * as iconTable from '../../shared/const/icons';
-import { WeatherService } from 'src/app/shared/services/weather.service';
-import { finalize } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import * as iconTable from "../../shared/const/icons";
+import { WeatherService } from "src/app/shared/services/weather.service";
+import { finalize } from "rxjs/operators";
 @Component({
-  selector: 'app-forecast',
-  templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.scss']
+  selector: "app-forecast",
+  templateUrl: "./forecast.component.html",
+  styleUrls: ["./forecast.component.scss"]
 })
 export class ForecastComponent implements OnInit {
   currentTime: number;
@@ -21,24 +21,29 @@ export class ForecastComponent implements OnInit {
     this.getCurrentWeatherInfo();
   }
 
-
   getCurrentWeatherInfo() {
-    this._weatherService.getCurrentWeather()
-     .pipe(
-       finalize(() => {
-        this._weatherService.getForecastWeather().subscribe(fc => {
-          this.forecast = this.getDaysForecast(fc);
-        });
-       })).subscribe(cw => {
-         this.currentTime = new Date(cw['dt'] * 1000).getHours();
-       });
+    this._weatherService
+      .getCurrentWeather()
+      .pipe(
+        finalize(() => {
+          this._weatherService.getForecastWeather().subscribe(fc => {
+            this.forecast = this.getDaysForecast(fc);
+          });
+        })
+      )
+      .subscribe(cw => {
+        this.currentTime = new Date(cw["dt"] * 1000).getHours();
+      });
   }
 
-  getDaysForecast(forecast): any[]  {
-    return forecast['list'].reduce((acc, val) => {
-      const TEMP_TIME = Number(val['dt_txt'].split(' ')[1].substring(0, 2 ));
-      if ( TEMP_TIME === this.currentTime || (TEMP_TIME >= this.currentTime && TEMP_TIME <= this.currentTime + 3)) {
-         acc.push(val);
+  getDaysForecast(forecast): any[] {
+    return forecast["list"].reduce((acc, val) => {
+      const TEMP_TIME = Number(val["dt_txt"].split(" ")[1].substring(0, 2));
+      if (
+        TEMP_TIME === this.currentTime ||
+        (TEMP_TIME >= this.currentTime && TEMP_TIME <= this.currentTime + 3)
+      ) {
+        acc.push(val);
       }
       return acc;
     }, []);
@@ -47,6 +52,4 @@ export class ForecastComponent implements OnInit {
   getDate(date: number) {
     return new Date(date * 1000);
   }
-
-
 }

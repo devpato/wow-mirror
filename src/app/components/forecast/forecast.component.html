@@ -1,19 +1,17 @@
 <div class="forecast">
-  <div class="header">
-      WEATHER FORECAST FOR THE NEXT {{forecast.length}} DAYS
-  </div>
+  <div class="header">FORECAST {{ forecast.length }} DAYS</div>
   <div class="body">
-      <div *ngFor="let f of forecast" class="day-weather">
-        <div class="day">
-            {{getDate(f.dt) | date: 'EEE'}}
-        </div>
-          <i class="wi {{icons.iconTable[f.weather[0].icon]}}"></i>
-           <div class="max-temp">
-              {{f.main.temp_max | number:'1.0-0' }}<i class="wi wi-celsius"></i>
-           </div>
-           <div class="min-temp">
-              {{f.main.temp_min | number:'1.0-0' }}<i class="wi wi-celsius"></i>
-           </div>
+    <div *ngFor="let f of forecast" class="day-weather">
+      <div class="day">
+        {{ getDate(f.dt) | date: "EEE" }}
       </div>
+      <i class="wi {{ icons.iconTable[f.weather[0].icon] }}"></i>
+      <div class="max-temp">
+        {{ f.main.temp_max | number: "1.0-0" }}<i class="wi wi-celsius"></i>
+      </div>
+      <div class="min-temp">
+        {{ f.main.temp_min | number: "1.0-0" }}<i class="wi wi-celsius"></i>
+      </div>
+    </div>
   </div>
 </div>
