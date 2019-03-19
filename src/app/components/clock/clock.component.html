@@ -1,3 +1,6 @@
-<p>
-  clock works!
-</p>
+<div class="clock">
+  <div class="container">
+    <div class="date">{{date | date: 'fullDate'}}</div>
+    <div class="time-wrapper"><span class="time">{{date | date: 'hh:mm'}}</span><sup class="seconds">{{date | date: 'ss a'}}</sup></div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.container {
+    .date {
+        font-size: 24px;
+    }
+    .time-wrapper {
+        font-size: 80px;
+        .seconds {
+            font-size: 24px;
+            color: grayscale($color: #d4d3d3)
+        }
+    }
+}
