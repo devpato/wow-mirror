@@ -40,6 +40,8 @@
 //Middle row
 .z4 {
   grid-area: z4;
+  justify-content: center;
+  align-items: center;
 }
 
 .z5 {
@@ -52,6 +54,8 @@
 .z6 {
   grid-area: z6;
   text-align: right;
+  justify-content: center;
+  align-items: center;
 }
 
 //Bottom Row
