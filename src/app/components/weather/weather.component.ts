@@ -10,6 +10,7 @@ import { finalize } from 'rxjs/operators';
 export class WeatherComponent implements OnInit {
   currentTime: number;
   forecast: [];
+  currentWeather: any;
   constructor(private _weatherService: WeatherService) { }
 
   ngOnInit() {
@@ -21,19 +22,19 @@ export class WeatherComponent implements OnInit {
     this._weatherService.getCurrentWeather()
      .pipe(
        finalize(() => {
-        this._weatherService.getForecastWeather().pipe(finalize(() => {
-          console.log(this.forecast);
-        })).subscribe(fc => {
+        this._weatherService.getForecastWeather().subscribe(fc => {
           this.forecast = this.getDaysForecast(fc);
         });
        })).subscribe(cw => {
-         this.currentTime = new Date(cw['dt']).getHours();
+         this.currentTime = new Date(cw['dt'] * 1000).getHours();
+         this.currentWeather = cw;
        });
   }
 
-  getDaysForecast(forecast): []  {
+  getDaysForecast(forecast: {}): []  {
     return forecast['list'].reduce((acc, val) => {
-      if (val['dt_txt'].split(' ')[1].substring(0, 2 ) == this.currentTime) {
+      const TEMP_TIME = Number(val['dt_txt'].split(' ')[1].substring(0, 2 ));
+      if ( TEMP_TIME === this.currentTime || (TEMP_TIME > TEMP_TIME && TEMP_TIME <= this.currentTime + 3)) {
          acc.push(val);
       }
       return acc;
