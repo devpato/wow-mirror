@@ -18,7 +18,7 @@ export class ForecastComponent implements OnInit {
   constructor(private _weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.getCurrentWeatherInfo();
+    this.startForecast();
   }
 
   getCurrentWeatherInfo() {
@@ -51,5 +51,12 @@ export class ForecastComponent implements OnInit {
 
   getDate(date: number) {
     return new Date(date * 1000);
+  }
+
+  startForecast() {
+    this.getCurrentWeatherInfo();
+    setInterval(() => {
+      this.getCurrentWeatherInfo();
+    }, 60 * 60 * 1000);
   }
 }
