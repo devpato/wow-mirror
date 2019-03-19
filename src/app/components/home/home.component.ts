@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   dragged: boolean;
@@ -17,15 +17,15 @@ export class HomeComponent implements OnInit {
 
   drag(ev) {
     this.dragged = true;
-    ev.dataTransfer.setData("text", ev.target.id);
+    ev.dataTransfer.setData('text', ev.target.id);
   }
 
   drop(ev: any, id: string) {
     if (!document.getElementById(id).hasChildNodes()) {
       this.dragged = false;
       ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
+      const DATA = ev.dataTransfer.getData('text');
+      ev.target.appendChild(document.getElementById(DATA));
     } else {
       this.dragged = false;
     }
