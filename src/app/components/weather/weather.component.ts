@@ -9,7 +9,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class WeatherComponent implements OnInit {
   currentTime: number;
-  forecast: [];
+  forecast = [];
   currentWeather: any;
   constructor(private _weatherService: WeatherService) { }
 
@@ -31,7 +31,7 @@ export class WeatherComponent implements OnInit {
        });
   }
 
-  getDaysForecast(forecast: {}): []  {
+  getDaysForecast(forecast): any[]  {
     return forecast['list'].reduce((acc, val) => {
       const TEMP_TIME = Number(val['dt_txt'].split(' ')[1].substring(0, 2 ));
       if ( TEMP_TIME === this.currentTime || (TEMP_TIME > TEMP_TIME && TEMP_TIME <= this.currentTime + 3)) {
