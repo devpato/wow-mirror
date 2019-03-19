@@ -1,0 +1,17 @@
+.header {
+    border-bottom: 1px solid #fff;
+}
+.day-weather {
+    display: flex;
+    justify-content: space-around;
+    .day {
+        width: 24px;
+    }
+    .min-temp {
+        color: #00BFFF;
+    }
+
+    .max-temp {
+        color: #cc0000;
+    }
+}
