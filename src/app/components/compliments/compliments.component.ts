@@ -42,7 +42,6 @@ export class ComplimentsComponent implements OnInit {
     this.selectedCompliment = this.compliments["default"][0];
     setInterval(() => {
       const time = new Date().getHours();
-      console.log("enter");
       if (time >= 6 && time <= 11) {
         this.setComplimentWithTimer(this.compliments["morning"]);
       } else if (time >= 11 && time <= 18) {
