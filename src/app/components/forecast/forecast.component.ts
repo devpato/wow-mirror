@@ -3,6 +3,7 @@ import * as iconTable from "../../shared/const/icons";
 import { WeatherService } from "src/app/shared/services/weather.service";
 import { finalize } from "rxjs/operators";
 import * as moment from "moment-timezone";
+import * as _ from "lodash";
 @Component({
   selector: "app-forecast",
   templateUrl: "./forecast.component.html",
@@ -16,6 +17,7 @@ export class ForecastComponent implements OnInit {
   sunset: Date;
   sunrise: Date;
   icons = iconTable;
+  currentDate: Date;
   constructor(private _weatherService: WeatherService) {}
 
   ngOnInit() {
@@ -36,27 +38,44 @@ export class ForecastComponent implements OnInit {
       .subscribe(cw => {
         // this.currentTime = new Date(cw["dt"] * 1000).getHours();
 
-        const x = new Date(cw["dt"] * 1000);
+        this.currentDate = new Date(cw["dt"] * 1000);
         this.currentTime = moment
-          .utc(x, "YYYY-MM-DD HH:mm:ss")
+          .utc(this.currentDate, "YYYY-MM-DD HH:mm:ss")
           .tz("America/New_York")
-          .format("ha");
+          .format("Ha");
       });
   }
 
   getDaysForecast(forecast): any[] {
-    return forecast["list"].reduce((acc, val) => {
-      let TEMP_TIME = moment
-        .utc(new Date(val["dt"] * 1000), "YYYY-MM-DD HH:mm:ss")
+    const ct = parseInt(
+      moment
+        .utc(this.currentDate, "YYYY-MM-DD HH:mm:ss")
         .tz("America/New_York")
-        .format("ha");
-      if (
-        TEMP_TIME === this.currentTime ||
-        (TEMP_TIME >= this.currentTime && TEMP_TIME <= this.currentTime + 3)
-      ) {
+        .add(12, "hours")
+        .format("H")
+    );
+    let TEMP_TIME;
+    let TEMP_TIME_3;
+    return forecast["list"].reduce((acc, val) => {
+      TEMP_TIME = parseInt(
+        moment
+          .utc(new Date(val["dt"] * 1000), "YYYY-MM-DD HH:mm:ss")
+          .tz("America/New_York")
+          .format("H")
+      );
+      TEMP_TIME_3 = parseInt(
+        moment
+          .utc(new Date(val["dt"] * 1000), "YYYY-MM-DD HH:mm:ss")
+          .tz("America/New_York")
+          .add(3, "hours")
+          .format("H")
+      );
+      //console.log(ct, TEMP_TIME, TEMP_TIME_3);
+      if (ct >= TEMP_TIME && ct <= TEMP_TIME_3) {
         acc.push(val);
       }
-      return acc;
+      // console.log(acc);
+      return acc.slice(0, 5);
     }, []);
   }
 

@@ -75,9 +75,21 @@
     (dragover)="allowDrop($event)"
     class="z6 {{ dragged ? 'placholder' : '' }}"
   >
-    <!-- <div id="drag6" draggable="true" (dragstart)="drag($event)" class="box drag">
-  
-    </div> -->
+    <div
+      id="drag6"
+      draggable="true"
+      (dragstart)="drag($event)"
+      class="box drag"
+    >
+      <iframe
+        src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=pevargas2730%40gmail.com&amp;color=%2329527A&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%23333333&amp;ctz=America%2FNew_York"
+        style="border:solid 1px #777"
+        width="100%"
+        height="500"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
+    </div>
   </div>
   <div
     id="z7"
