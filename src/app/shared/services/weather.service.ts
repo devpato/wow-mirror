@@ -7,7 +7,7 @@ import * as _ from "lodash";
   providedIn: "root"
 })
 export class WeatherService {
-  API_KEY = "39dd6312d1d9c6ab34ba092ee65ffd29";
+  API_KEY = "XXXXXXXX";
   LOCATION = "Jacksonville,US";
   BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
